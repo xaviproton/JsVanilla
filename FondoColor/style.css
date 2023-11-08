@@ -1,0 +1,137 @@
+@font-face {
+  font-family: flipper;
+  src: url("./Fonts/Agbalumo-Regular.ttf");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: flipper;
+}
+
+.nav-center {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: beige;
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.nav-titulo {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-titulo h1 {
+  background-image: linear-gradient(
+    45deg,
+    #ff00cc,
+    #ff6600,
+    #ffcc00,
+    #33cc33,
+    #3399ff,
+    #9933cc
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+.nav-titulo h1:hover {
+  transform: scale(1.2);
+}
+.nav-link {
+  width: 50%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-link a {
+  text-decoration: none;
+  margin: 2rem;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover {
+  transform: scale(1.2);
+}
+
+/* Container_____________________ */
+main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+.container {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+ width: 60%;
+}
+.in-container {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 18rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.in-container h2{
+    font-size:2.8rem;
+    letter-spacing: 4px;
+}
+#spany{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-hero {
+    margin-top:4rem;
+    width: 18rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 3px solid black;
+    color: black;
+    font-family: flipper;
+    font-size:30px;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease, background-color 0.7s ease;
+}
+
+.btn-hero:hover {
+    background-color:black;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-hero:active {
+    transform: translateY(2px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#xavi{
+    color: black;
+    font-weight: bold;
+    font-size:9px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 4px;
+    /* visibility: hidden; */
+}
+/* #xavi:hover{
+    visibility: visible;
+} */
