@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: app.js</title>
+    <title>JSDoc: Source: hex.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: app.js</h1>
+    <h1 class="page-title">Source: hex.js</h1>
 
     
 
@@ -26,8 +26,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>
-/**
+            <pre class="prettyprint source linenums"><code>/**
  * Función que se ejecuta cuando el DOM se ha cargado completamente.
  * Encuentra el enlace correspondiente a la página actual y le asigna la clase "active".
  *
@@ -43,16 +42,15 @@
  * @param {boolean} [useCapture=false] - Especifica si el evento debe capturarse durante la fase de captura
  * @returns {void}
  */
-
 window.addEventListener("DOMContentLoaded", function () {
-  // Obtiene todos los enlaces en la página
+  // Obtiene todos los elementos de enlace (&lt;a>) en el documento
   let links = document.querySelectorAll("a");
 
   // Obtiene la ruta de la página actual
   let paginaActual = window.location.pathname;
 
   /**
-   * Itera a través de todos los enlaces para encontrar el que corresponde a la página actual.
+   * Itera a través de los enlaces para encontrar el enlace correspondiente a la página actual.
    *
    * @param {Element} link - Elemento de enlace actual en la iteración.
    */
@@ -74,50 +72,47 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * Array con diferentes colores.
- * @param {string[]} - colors
+ * Array que contiene dígitos y letras para generar colores hexadecimales aleatorios.
+ * @type {Array}
  */
-const colors = ["green", "red","blue", "yellow", "grey", "#f15025"];
+const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
 
 /**
- * Botón en la pagina.
- * @param {HTMLButtonElement} - btn
- * Muestra el color actual
- * @param {HTMLElement} - color
+ * Obtiene el botón y el elemento de texto para mostrar el color hexadecimal.
+ * @type {Element}
  */
-
 const btn = document.getElementById("btn");
 const color = document.querySelector(".color");
 
 /**
- * Función que se ejecuta cuando se hace clic en el botón.
- * Cambia el color de fondo del cuerpo del documento y muestra el color actual.
- * @param {number} randomNumber - Número aleatorio entre 0 y la longitud del array de colores.
+ * Agrega un evento click al botón para generar un color hexadecimal aleatorio.
+ *
+ * @event click
+ * @callback
  */
-
 btn.addEventListener("click", function () {
-  
-  const randomNUmber = getRandomNumber();
   /**
-   *  Cambiar el color de fondo del cuerpo del documento.
-   *  */
-  document.body.style.backgroundColor = colors[randomNUmber];
-   /**
-    * Mostrar el color actual en el elemento del documento.
-    *  */ 
-  color.textContent = colors[randomNUmber];
-});
+   * Genera un número aleatorio dentro del rango del array "hex".
+   * @function
+   * @returns {number} - Número aleatorio.
+   */
+  function getRandomNumber() {
+    return Math.floor(Math.random() * hex.length);
+  }
+  /**
+   * @type {string}
+   */
+  let hexColor = "#";
 
-/**
- * Función que devuelve un número aleatorio entre 0 y la longitud del array de colores.
- * @returns {number} Número aleatorio.
- */
+  // Genera un color hexadecimal aleatorio concatenando valores aleatorios del array "hex"
+  for (let i = 0; i &lt; 6; i++) {
+    hexColor += hex[getRandomNumber()];
+  }
 
-function getRandomNumber() {
-    return Math.floor(Math.random()*colors.length);
-}
-
-</code></pre>
+  // Muestra el color hexadecimal generado en el elemento de texto y cambia el color de fondo del cuerpo
+  color.textContent = hexColor;
+  document.body.style.backgroundColor = hexColor;
+});</code></pre>
         </article>
     </section>
 

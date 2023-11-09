@@ -1,30 +1,45 @@
 
 /**
- * Esta funcion se utiliza para marcar visualmente la pagina en la que esta el usuario
+ * Función que se ejecuta cuando el DOM se ha cargado completamente.
+ * Encuentra el enlace correspondiente a la página actual y le asigna la clase "active".
+ *
  * 
+ * @callback DOMContentLoadedCallback
  */
+/**
+ * 
+ *
+ * @function
+ * @param {string} event - DOMContentLoaded
+ * @param {DOMContentLoadedCallback} callback - La función vacia.
+ * @param {boolean} [useCapture=false] - Especifica si el evento debe capturarse durante la fase de captura
+ * @returns {void}
+ */
+
 window.addEventListener("DOMContentLoaded", function () {
-  /**
-   * @param {NodeListOf<HTMLAnchorElement>} links -  Lista de todos los elementos <a> en el documento.
-   * @param {string} paginaActual - Ruta de la página actual.
-   */
+  // Obtiene todos los enlaces en la página
   let links = document.querySelectorAll("a");
+
+  // Obtiene la ruta de la página actual
   let paginaActual = window.location.pathname;
 
   /**
-   * Iteramos a traves de todos los links para encontrar el que corresponde
-   * @param {string} enlacePath - Ruta del enlace actual en la iteración.
+   * Itera a través de todos los enlaces para encontrar el que corresponde a la página actual.
+   *
+   * @param {Element} link - Elemento de enlace actual en la iteración.
    */
   for (let i = 0; i < links.length; i++) {
     let enlacePath = links[i].pathname;
 
-  /**
-   *  En cada iteración, compara el enlace que hay en "enlacePath", con el enlace 
-   *  que hay en "paginaActual", que es el enlace activo
-   *  Si coincide, se le asigna a ese link la clase "active"
-   *  */
+    /**
+     * Compara la ruta del enlace actual con la ruta de la página actual.
+     * Si coinciden, agrega la clase "active" al enlace.
+     *
+     * @param {string} enlacePath - Ruta del enlace actual en la iteración.
+     * @param {string} paginaActual - Ruta de la página actual.
+     */
     if (enlacePath === paginaActual) {
-       // Agregar la clase "active" al enlace que corresponde a la página actual.
+      // Agrega la clase "active" al enlace que corresponde a la página actual.
       links[i].classList.add("active");
     }
   }
