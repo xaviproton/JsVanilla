@@ -1,3 +1,3 @@
 # JsVanilla
 
-Repositorio de pequeños proyectos hechos con HTML/CSS y JavaScript.
+Repositorio de pequeños proyectos hechos con HTML/CSS y JavaScript puro.
